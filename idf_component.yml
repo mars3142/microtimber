@@ -1,0 +1,7 @@
+version: "0.1.0"
+description: "Logging Framework for embedded devices"
+url: "https://github.com/mars3142/microtimber"
+license: "AGPL-3.0-or-later"
+dependencies:
+  idf:
+    version: ">=4.4"
