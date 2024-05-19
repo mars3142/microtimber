@@ -1,4 +1,3 @@
-#pragma once
 /**
     MicroTimber is a logging library that provides a simple interface for logging messages.
     Copyright (C) 2024  Peter Siegmund
@@ -16,6 +15,16 @@
     You should have received a copy of the GNU Affero General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
+#include "micro_timber.h"
+#include "tree_esp-idf.h"
 
-/// Enum for the different log levels
-enum TimberLogLevel { ERROR, WARNING, INFO, DEBUG, VERBOSE };
+extern "C" void app_main(void) {
+    MicroTimber::plant(new TreeESPIDF());
+
+    MicroTimber::d("This is a debug message.");
+    MicroTimber::i("This is an info message.");
+    MicroTimber::tag("custom-tag");
+    MicroTimber::w("This is a warning message.");
+    MicroTimber::e("This is an error message.");
+    MicroTimber::v("This is a verbose message.");
+}

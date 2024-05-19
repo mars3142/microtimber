@@ -16,6 +16,20 @@
     You should have received a copy of the GNU Affero General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
+#include "tree.h"
 
-/// Enum for the different log levels
-enum TimberLogLevel { ERROR, WARNING, INFO, DEBUG, VERBOSE };
+/**
+ * Logger for the default ESP32 logging mechanismus.
+ *
+ * This class should be planted with Timber::plant() to use it.
+ */
+class TreeESPIDF : public Tree {
+ public:
+    /**
+     * Log a message.
+     *
+     * @param logLevel Log level.
+     * @param message Message.
+     */
+    void log(const TimberLogLevel logLevel, const char *message) override;
+};

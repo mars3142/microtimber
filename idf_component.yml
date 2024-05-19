@@ -1,7 +1,17 @@
-version: "0.1.0"
-description: "Logging Framework for embedded devices"
-url: "https://github.com/mars3142/microtimber"
-license: "AGPL-3.0-or-later"
+description: Logging Framework for embedded devices
+version: 0.1.0
+
+url: https://github.com/mars3142/microtimber
+issues: https://github.com/mars3142/microtimber/issues
+documentation: https://github.com/mars3142/microtimber/tree/main/README.md
+repository: https://github.com/mars3142/microtimber.git
+
+maintainers:
+  - "Peter Siegmund <developer@mars3142.org>"
+
 dependencies:
-  idf:
-    version: ">=4.4"
+  idf: ">=4.4.0"
+
+files:
+  exclude:
+    - .vscode/**

@@ -1,0 +1,4 @@
+dependencies:
+  mars3142/microtimber:
+    version: "*"
+    override_path: '../../../'

@@ -16,30 +16,63 @@
     You should have received a copy of the GNU Affero General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
-
-#include <string>
-
-#include "timber_log_level.h"
+#include "tree.h"
 
 /**
- * Interface for loggers.
+ * MicroTimber is a logging library that provides a simple interface for logging messages.
+ *
+ * It is designed to be easy to use and to provide a consistent interface across different logging methods.
  */
-class Tree {
+class MicroTimber {
  public:
+    /**
+     * Add a logger.
+     *
+     * This method should be called before any other Timber methods.
+     *
+     * @param tree Logger.
+     */
+    static void plant(Tree* tree);
+
     /**
      * Add a tag for the next log messages.
      *
      * @param tag Tag.
      */
-    void tag(const char *tag);
+    static void tag(const char* tag);
 
     /**
      * Log a debug message.
      *
      * @param message Message.
      */
-    virtual void log(const TimberLogLevel logLevel, const char *message) = 0;
+    static void d(const char* message);
 
- protected:
-    std::string m_tag = "app";
+    /**
+     * Log an info message.
+     *
+     * @param message Message.
+     */
+    static void i(const char* message);
+
+    /**
+     * Log a warning message.
+     *
+     * @param message Message.
+     */
+    static void w(const char* message);
+
+    /**
+     * Log an error message.
+     *
+     * @param message Message.
+     */
+    static void e(const char* message);
+
+    /**
+     * Log a verbose message.
+     *
+     * @param message Message.
+     */
+    static void v(const char* message);
 };
