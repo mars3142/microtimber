@@ -1,0 +1,34 @@
+name: Build the ESP-IDF example project
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  build:
+    strategy:
+      matrix:
+        idf_ver:
+          [
+            release-v4.4,
+            release-v5.0,
+            release-v5.1,
+            release-v5.2,
+            release-v5.3,
+            latest,
+          ]
+        idf_target: [esp32, esp32s3, esp32c3]
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          submodules: "recursive"
+      - name: ESP-IDF build
+        uses: espressif/esp-idf-ci-action@v1
+        with:
+          esp_idf_version: ${{ matrix.idf_ver }}
+          target: ${{ matrix.idf_target }}
+          path: "examples/app"
