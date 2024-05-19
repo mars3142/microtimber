@@ -17,33 +17,14 @@
 */
 #include "tree_esp-idf.h"
 
-#include <stdio.h>
-
 #include "esp_log.h"
 
-void TreeESPIDF::log(const TimberLogLevel logLevel, const char* message) {
-    switch (logLevel) {
-        case TimberLogLevel::ERROR:
-            ESP_LOGE(m_tag.c_str(), "%s", message);
-            break;
+void TreeESPIDF::d(const char* message) { ESP_LOGD(m_tag.c_str(), "%s", message); }
 
-        case TimberLogLevel::WARNING:
-            ESP_LOGW(m_tag.c_str(), "%s", message);
-            break;
+void TreeESPIDF::i(const char* message) { ESP_LOGI(m_tag.c_str(), "%s", message); }
 
-        case TimberLogLevel::INFO:
-            ESP_LOGI(m_tag.c_str(), "%s", message);
-            break;
+void TreeESPIDF::w(const char* message) { ESP_LOGW(m_tag.c_str(), "%s", message); }
 
-        case TimberLogLevel::DEBUG:
-            ESP_LOGD(m_tag.c_str(), "%s", message);
-            break;
+void TreeESPIDF::e(const char* message) { ESP_LOGE(m_tag.c_str(), "%s", message); }
 
-        case TimberLogLevel::VERBOSE:
-            ESP_LOGV(m_tag.c_str(), "%s", message);
-            break;
-
-        default:
-            break;
-    }
-};
+void TreeESPIDF::v(const char* message) { ESP_LOGV(m_tag.c_str(), "%s", message); }

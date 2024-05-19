@@ -26,10 +26,37 @@
 class TreeESPIDF : public Tree {
  public:
     /**
-     * Log a message.
+     * Log a debug message.
      *
-     * @param logLevel Log level.
      * @param message Message.
      */
-    void log(const TimberLogLevel logLevel, const char *message) override;
+    void d(const char* message) override;
+
+    /**
+     * Log an info message.
+     *
+     * @param message Message.
+     */
+    void i(const char* message) override;
+
+    /**
+     * Log a warning message.
+     *
+     * @param message Message.
+     */
+    void w(const char* message) override;
+
+    /**
+     * Log an error message.
+     *
+     * @param message Message.
+     */
+    void e(const char* message) override;
+
+    /**
+     * Log a verbose message.
+     *
+     * @param message Message.
+     */
+    void v(const char* message) override;
 };

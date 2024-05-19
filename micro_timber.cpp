@@ -17,48 +17,44 @@
 */
 #include "micro_timber.h"
 
-#include <stdio.h>
-
 #include <vector>
 
-#include "timber_log_level.h"
-
-static std::vector<Tree*> m_tree;
+static std::vector<Tree*> m_trees;
 
 void MicroTimber::tag(const char* tag) {
-    for (auto tree : m_tree) {
+    for (auto tree : m_trees) {
         tree->tag(tag);
     }
 }
 
-void MicroTimber::plant(Tree* tree) { m_tree.push_back(tree); }
+void MicroTimber::plant(Tree* tree) { m_trees.push_back(tree); }
 
 void MicroTimber::d(const char* message) {
-    for (auto tree : m_tree) {
-        tree->log(TimberLogLevel::DEBUG, message);
+    for (auto tree : m_trees) {
+        tree->d(message);
     }
 }
 
 void MicroTimber::i(const char* message) {
-    for (auto tree : m_tree) {
-        tree->log(TimberLogLevel::INFO, message);
+    for (auto tree : m_trees) {
+        tree->i(message);
     }
 }
 
 void MicroTimber::w(const char* message) {
-    for (auto tree : m_tree) {
-        tree->log(TimberLogLevel::WARNING, message);
+    for (auto tree : m_trees) {
+        tree->w(message);
     }
 }
 
 void MicroTimber::e(const char* message) {
-    for (auto tree : m_tree) {
-        tree->log(TimberLogLevel::ERROR, message);
+    for (auto tree : m_trees) {
+        tree->e(message);
     }
 }
 
 void MicroTimber::v(const char* message) {
-    for (auto tree : m_tree) {
-        tree->log(TimberLogLevel::VERBOSE, message);
+    for (auto tree : m_trees) {
+        tree->v(message);
     }
 }

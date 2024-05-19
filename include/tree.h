@@ -19,8 +19,6 @@
 
 #include <string>
 
-#include "timber_log_level.h"
-
 /**
  * Interface for loggers.
  */
@@ -31,14 +29,42 @@ class Tree {
      *
      * @param tag Tag.
      */
-    void tag(const char *tag);
+    void tag(const char* tag);
 
     /**
      * Log a debug message.
      *
      * @param message Message.
      */
-    virtual void log(const TimberLogLevel logLevel, const char *message) = 0;
+    virtual void d(const char* message) = 0;
+
+    /**
+     * Log an info message.
+     *
+     * @param message Message.
+     */
+    virtual void i(const char* message) = 0;
+
+    /**
+     * Log a warning message.
+     *
+     * @param message Message.
+     */
+    virtual void w(const char* message) = 0;
+
+    /**
+     * Log an error message.
+     *
+     * @param message Message.
+     */
+    virtual void e(const char* message) = 0;
+
+    /**
+     * Log a verbose message.
+     *
+     * @param message Message.
+     */
+    virtual void v(const char* message) = 0;
 
  protected:
     std::string m_tag = "app";
